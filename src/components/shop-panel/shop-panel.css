@@ -1,0 +1,19 @@
+.panel__list {
+    list-style: none;
+    max-width: 300px;
+}
+
+.panel__item {
+    font-size: 18px;
+    margin-bottom: 8px;
+    padding: 10px 20px;
+    border: 2px solid #fa7777;
+    border-radius: 10px;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.panel__item:hover {
+    background: #fc9b9b;
+    color: #fff;
+}
