@@ -1,17 +1,17 @@
 import './shop-panel.css';
 
-function Restaurant({name}) {
-    return <li className="panel__item">{name}</li>;
+function Restaurant({children}) {
+    return <li className="panel__item">{children}</li>;
 }
 
 export default function Panel() {
     return (
         <ul className="panel__list">
-            <Restaurant name='McDonalds'/>
-            <Restaurant name='KFC'/>
-            <Restaurant name='Subway'/>
-            <Restaurant name='Taco Bell'/>
-            <Restaurant name='MaxBurger'/>
+            <Restaurant>McDonalds</Restaurant>
+            <Restaurant>KFC</Restaurant>
+            <Restaurant>Subway</Restaurant>
+            <Restaurant>Taco Bell</Restaurant>
+            <Restaurant>Burger King</Restaurant>
         </ul>
     );
 }

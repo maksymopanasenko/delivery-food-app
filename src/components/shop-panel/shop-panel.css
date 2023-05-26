@@ -1,16 +1,18 @@
 .panel__list {
     list-style: none;
-    max-width: 300px;
+    max-width: 200px;
 }
 
 .panel__item {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 8px;
-    padding: 10px 20px;
+    padding: 20px;
+    text-align: center;
     border: 2px solid #fa7777;
     border-radius: 10px;
     transition: all .3s;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .panel__item:hover {
