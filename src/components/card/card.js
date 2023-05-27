@@ -1,5 +1,3 @@
-import food from '../../resources/img/food.png';
-
 import './card.css';
 
 export default function Card({data}) {
@@ -11,7 +9,7 @@ export default function Card({data}) {
                     <span className='board__label'>{data.time + ' min'}</span>
                     <span className='board__label'>{data.assessment}</span>
                 </div>
-                <img src={food} alt='dish'/>
+                <img src={data.image} alt='dish'/>
             </a>
             
             <div className="card__main-info">

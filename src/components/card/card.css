@@ -20,7 +20,7 @@
 
 .board__link img {
     width: 100%;
-
+    display: flex;
 }
 
 .card__main-info {

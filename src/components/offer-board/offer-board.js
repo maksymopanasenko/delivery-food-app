@@ -4,7 +4,9 @@ import './offer-board.css';
 
 export default function Board({data}) {
 
-    const arr = data.map(item => {
+    const dataArray = JSON.parse(data);
+
+    const arr = dataArray.map(item => {
         const {id, ...data} = item;
         return <Card key={id} data={data}/>
     });

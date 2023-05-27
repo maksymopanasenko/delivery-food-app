@@ -1,14 +1,31 @@
+import React, { useEffect, useState } from 'react';
+
 import Header from './components/header/header';
 import Panel from './components/shop-panel/shop-panel';
 import Board from './components/offer-board/offer-board';
+// import data from './database/db.json';
+// import getData from './services/service';
+
 import './App.css';
 
 function App() {
-  const data = [
-    {name: 'Shrimps', price: 9.5, time: 40, assessment: 5, id: 1},
-    {name: 'Bowl', price: 15, time: 30, assessment: 5, id: 2},
-    {name: 'Fries', price: 7, time: 25, assessment: 4, id: 3}
-  ];
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const response = await fetch('https://food-delivery-server-nk9c.onrender.com/');
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error('Сталася помилка:', error);
+    }
+  }
+
 
   return (
     <div className='app'>
@@ -17,7 +34,13 @@ function App() {
         <div className="container">
           <div className="main__body">
             <Panel />
-            <Board data={data}/>
+            <>
+              {data ? (
+                <div>
+                  <Board data={JSON.stringify(data, null, 2)}/>
+                </div>) :
+                (<p>Loading...</p>)}
+            </>
           </div>
         </div>
       </main>
