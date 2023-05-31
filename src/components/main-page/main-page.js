@@ -7,6 +7,7 @@ import './main-page.css';
 export default function Main() {
 
     const [data, setData] = useState(null);
+    const [index, setIndex] = useState(null);
 
     useEffect(() => {
       fetchData();
@@ -22,20 +23,26 @@ export default function Main() {
       }
     }
 
+    function getIndex(index) {
+        setIndex(index);
+    }
+    console.log(index);
+
     return (
         <main>
             <div className="container">
-            <div className="main__body">
-                <Panel />
-                <>
-                    {data ? 
-                        (<>
-                            <Board data={JSON.stringify(data, null, 2)}/>
-                        </>) :
-                        (<p className='loading'>Loading...</p>)
-                    }
-                </>
-            </div>
+                <div className="main__body">
+                    <Panel getIndex={getIndex}/>
+                    <>
+                        {data ? 
+                            (<>
+                                <Board data={JSON.stringify(data, null, 2)} index={index}/>
+                            </>) :
+                            (<p className='loading'>Loading...</p>)
+                        }
+                        {/* <Board index={index}/> */}
+                    </>
+                </div>
             </div>
         </main>
     )

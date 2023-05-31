@@ -5,10 +5,11 @@
 }
 
 .app {
-    height: 100vh;
+    min-height: 100vh;
+    background: #f0f5f7;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 0 auto;
 }

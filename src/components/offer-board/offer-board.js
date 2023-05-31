@@ -3,6 +3,7 @@ import Card from '../card/card';
 import cossack from '../../resources/img/cossack.png'
 
 import './offer-board.css';
+
 function Banner() {
     return (
         <div className='banner'>
@@ -18,14 +19,14 @@ function BoardList({array}) {
         <ul className="board__list">
             {array}
         </ul>
-    )
+    );
 }
 
-export default function Board({data}) {
+export default function Board({data, index}) {
 
     const dataArray = JSON.parse(data);
-
-    const arr = dataArray.map(item => {
+    
+    const arr = dataArray[index]?.map(item => {
         const {id, ...data} = item;
         return <Card key={id} data={data}/>
     });
@@ -37,5 +38,5 @@ export default function Board({data}) {
                 <Route path='/:id' element={<BoardList array={arr}/>}/>
             </Routes>
         </div>
-    )
+    );
 }
