@@ -1,11 +1,11 @@
 .header {
     padding: 20px;
-    background: #fa7777;
+    /* background: #fa7777; */
+    background: #000000;
 }
 
-
 .header__btns {
-    width: 250px;
+    width: 400px;
     display: flex;
     justify-content: space-between;
 }
@@ -22,12 +22,26 @@
     background: transparent;
     border: none;
     border-radius: 10px;
-    min-width: 90px;
+    min-width: 150px;
     cursor: pointer;
     transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header__btn:hover {
-    background: #fc9b9b;
-    box-shadow: 2px 2px 5px #803e3ea8;
+    /* background: #fc9b9b; */
+    background: #33821f;
+    /* box-shadow: 2px 2px 5px #803e3ea8; */
+    box-shadow: 3px 3px 5px #4588349a;
+}
+
+#cart {
+    padding: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    background: url('../../resources/icons/shopping-cart.png') center/cover no-repeat;
 }

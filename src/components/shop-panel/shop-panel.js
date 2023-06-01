@@ -12,8 +12,7 @@ function Restaurant({children}) {
 }
 
 export default function Panel({getIndex}) {
-    const [items, setItems] = useState(['McDonalds', 'KFC', 'Subway', 'Taco Bell', 'Burger King']);
-
+    const [items] = useState(['McDonalds', 'KFC', 'Subway', 'Taco Bell', 'Burger King']);
 
     return (
         <ul className="panel__list">

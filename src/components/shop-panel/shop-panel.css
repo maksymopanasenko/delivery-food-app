@@ -8,14 +8,17 @@
     margin-bottom: 8px;
     padding: 20px;
     text-align: center;
-    border: 2px solid #fa7777;
+    border: 2px solid #33821f;
+    /* border: 2px solid #fa7777; */
+    background: #33821f4f;
     border-radius: 10px;
     transition: all .3s;
     cursor: pointer;
     letter-spacing: 1px;
+    color: #fff;
 }
 
 .panel__item button:hover {
-    background: #fc9b9b;
-    color: #fff;
+    /* background: #fc9b9b; */
+    background: #33821f;
 }

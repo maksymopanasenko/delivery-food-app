@@ -6,7 +6,8 @@
 
 .app {
     min-height: 100vh;
-    background: #f0f5f7;
+    /* background: #f0f5f7; */
+    background: #3a3c3d;
 }
 
 .container {

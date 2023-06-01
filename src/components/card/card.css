@@ -1,15 +1,17 @@
 .board__card {
     width: 100%;
     text-align: center;
+    color: #fff;
 }
 
 .board__link {
     display: inline-block;
     width: 100%;
-    background: #fdfdfd;
+    background: #00000081;
     border-radius: 20px;
     overflow: hidden;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .board__link-text {

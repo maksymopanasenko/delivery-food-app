@@ -13,8 +13,11 @@
 .banner {
     text-align: center;
     margin-top: 50px;
+    color: #fff;
 }
 
 .banner img {
     object-fit: cover;
+    background: #33821f;
+    border-radius: 10px;
 }

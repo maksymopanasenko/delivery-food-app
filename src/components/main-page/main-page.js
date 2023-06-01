@@ -4,7 +4,7 @@ import Board from '../offer-board/offer-board';
 
 import './main-page.css';
 
-export default function Main() {
+export default function Main({addProduct}) {
 
     const [data, setData] = useState(null);
     const [index, setIndex] = useState(null);
@@ -26,7 +26,6 @@ export default function Main() {
     function getIndex(index) {
         setIndex(index);
     }
-    console.log(index);
 
     return (
         <main>
@@ -36,11 +35,10 @@ export default function Main() {
                     <>
                         {data ? 
                             (<>
-                                <Board data={JSON.stringify(data, null, 2)} index={index}/>
+                                <Board data={JSON.stringify(data, null, 2)} index={index} addProduct={addProduct}/>
                             </>) :
                             (<p className='loading'>Loading...</p>)
                         }
-                        {/* <Board index={index}/> */}
                     </>
                 </div>
             </div>

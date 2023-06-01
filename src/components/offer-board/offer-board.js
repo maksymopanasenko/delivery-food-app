@@ -22,20 +22,20 @@ function BoardList({array}) {
     );
 }
 
-export default function Board({data, index}) {
+export default function Board({data, index, addProduct}) {
 
     const dataArray = JSON.parse(data);
     
     const arr = dataArray[index]?.map(item => {
         const {id, ...data} = item;
-        return <Card key={id} data={data}/>
+        return <Card key={id} data={data} addProduct={addProduct}/>
     });
 
     return (
         <div className="board">
             <Routes>
                 <Route path='/' element={<Banner/>}/>
-                <Route path='/:id' element={<BoardList array={arr}/>}/>
+                <Route path='/:id' element={<BoardList array={arr} />}/>
             </Routes>
         </div>
     );

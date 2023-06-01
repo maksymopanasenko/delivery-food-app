@@ -1,0 +1,37 @@
+.list {
+    width: 50%;
+    color: #fff;
+}
+
+.list__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #00000081;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.list__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.list__item img {
+    width: 100px;
+    border-radius: 10px;
+}
+
+.list__btn {
+    height: 35px;
+    padding: 0 20px;
+    border-radius: 10px;
+    transition: all .3s;
+    background: #33821f4f;
+}
+
+.list__btn:hover {
+    background: #33821f;
+}
