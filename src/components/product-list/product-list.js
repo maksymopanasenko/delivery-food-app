@@ -6,11 +6,12 @@ export default function ProductList({list}) {
 
     const [items] = useState(list);
 
-    console.log(items)
+    // console.log(items)
 
     return (
         <ul className="list">
-            {items.map((item, index) => {
+            {items.length !== 0 ?
+             (items.map((item, index) => {
                 return (
                     <li className="list__item" key={index}>
                         <div className="list__wrapper"> 
@@ -21,7 +22,8 @@ export default function ProductList({list}) {
                         <button className='list__btn'>Remove</button>
                     </li>
                 );
-            })}
+            })) :
+             (<p>Cart is empty</p>)}
         </ul>
     )
 }

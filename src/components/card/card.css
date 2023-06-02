@@ -31,3 +31,18 @@
     display: flex;
     justify-content: space-between;
 }
+
+.star {
+    position: relative;
+}
+
+.star::before {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url('../../resources/icons/star.png') center/cover no-repeat;
+}

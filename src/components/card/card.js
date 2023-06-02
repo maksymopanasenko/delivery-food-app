@@ -7,7 +7,7 @@ export default function Card({data, addProduct}) {
             <div className="board__link" onClick={() => addProduct(data)}>
                 <div className="board__link-text">
                     <span className='board__label'>{data.time + ' min'}</span>
-                    <span className='board__label'>{data.assessment}</span>
+                    <span className='board__label star'>{data.assessment}</span>
                 </div>
                 <img src={data.image} alt='dish'/>
             </div>

@@ -16,6 +16,7 @@
     cursor: pointer;
     letter-spacing: 1px;
     color: #fff;
+    text-shadow: 1px 1px 3px black;
 }
 
 .panel__item button:hover {
