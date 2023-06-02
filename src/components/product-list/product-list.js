@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import './product-list.css';
+
+function EmptyCart() {
+    return (
+        <div className="empty">
+            <p className='empty__text'>Your cart is empty...</p>
+            <button className='empty__btn'> <Link to={'/'}>Back to shop list</Link> </button>
+        </div>
+    )
+}
 
 export default function ProductList({list, deleteItem}) {
 
-    const [items, setItems] = useState(list);
-
-    function deleteItemFromCart(i) {
-        setItems(items => items.filter(item => item !== items[i]))
-    };
-
     return (
-        <ul className="list">
-            {items.length !== 0 ?
-             (items.map((item, index) => {
-                return (
-                    <li className="list__item" key={index}>
-                        <div className="list__wrapper"> 
-                            <span>{index + 1}.</span>
-                            <img src={item.image} alt={item.name} />
-                            <span>{item.name}</span>
-                        </div>
-                        <button className='list__btn' onClick={() => {
-                            deleteItem(index);
-                            deleteItemFromCart(index);
-                        }}>Remove</button>
-                    </li>
-                );
-            })) :
-             (<p>Cart is empty</p>)}
-        </ul>
+        <>
+            {list.length !== 0 ?
+                (<ul className="list">
+                    {list.map((item, index) => {
+                        return (
+                                <li className="list__item" key={index}>
+                                    <div className="list__wrapper"> 
+                                        <span>{index + 1}.</span>
+                                        <img src={item.image} alt={item.name} />
+                                        <span>{item.name}</span>
+                                    </div>
+                                    <button className='list__btn' onClick={() => deleteItem(index)}>Remove</button>
+                                </li>
+                        );
+                    })}
+                </ul>) :
+                (<EmptyCart/>)
+            }
+        </>
     );
 }

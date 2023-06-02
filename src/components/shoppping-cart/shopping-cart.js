@@ -10,7 +10,7 @@ export default function ShoppingCart({products, deleteItem}) {
             <div className="container">
                 <div className="cart__body">
                     <ProductList list={products} deleteItem={deleteItem}/>
-                    <Total list={products}/>
+                    {products.length > 0 ? <Total list={products}/> : null}
                 </div>
             </div>
         </main>

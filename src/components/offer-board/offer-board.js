@@ -9,7 +9,7 @@ function Banner() {
         <div className='banner'>
             <h1 className='banner__title'>SichExpress</h1>
             <img src={cossack} alt="cossack" />
-            <p className='banner__text'>Mountains shiver as we deliver</p>
+            <p className='banner__slogan'><em>"Mountains shiver as we deliver"</em></p>
         </div>
     );
 }

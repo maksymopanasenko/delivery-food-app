@@ -9,18 +9,22 @@ export default function Main({addProduct}) {
     const [data, setData] = useState(null);
     const [index, setIndex] = useState(null);
 
+    function Loading() {
+        return <p className='loading'>Loading...</p>
+    }
+
     useEffect(() => {
-      fetchData();
+        fetchData();
     }, []);
   
     async function fetchData() {
-      try {
-        const response = await fetch('https://food-delivery-server-nk9c.onrender.com/');
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.error('Error happened:', error);
-      }
+        try {
+            const response = await fetch('https://food-delivery-server-nk9c.onrender.com/');
+            const data = await response.json();
+            setData(data);
+        } catch (error) {
+            console.error('Error happened:', error);
+        }
     }
 
     function getIndex(index) {
@@ -33,11 +37,11 @@ export default function Main({addProduct}) {
                 <div className="main__body">
                     <Panel getIndex={getIndex}/>
                     <>
-                        {data ? 
+                        {data ?
                             (<>
                                 <Board data={JSON.stringify(data, null, 2)} index={index} addProduct={addProduct}/>
                             </>) :
-                            (<p className='loading'>Loading...</p>)
+                            (<Loading/>)
                         }
                     </>
                 </div>
