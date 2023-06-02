@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 
 import './product-list.css';
 
-export default function ProductList({list}) {
+export default function ProductList({list, deleteItem}) {
 
-    const [items] = useState(list);
+    const [items, setItems] = useState(list);
 
-    // console.log(items)
+    function deleteItemFromCart(i) {
+        setItems(items => items.filter(item => item !== items[i]))
+    };
 
     return (
         <ul className="list">
@@ -19,11 +21,14 @@ export default function ProductList({list}) {
                             <img src={item.image} alt={item.name} />
                             <span>{item.name}</span>
                         </div>
-                        <button className='list__btn'>Remove</button>
+                        <button className='list__btn' onClick={() => {
+                            deleteItem(index);
+                            deleteItemFromCart(index);
+                        }}>Remove</button>
                     </li>
                 );
             })) :
              (<p>Cart is empty</p>)}
         </ul>
-    )
+    );
 }

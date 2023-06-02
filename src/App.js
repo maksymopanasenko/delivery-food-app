@@ -14,12 +14,16 @@ function App() {
     setProducts(products => [...products, product]);
   }
 
+  function deleteItem(i) {
+    setProducts(products => products.filter(item => item !== products[i]))
+  }
+
   return (
     <div className='app'>
       <Header />
        <Routes>
          <Route path='*' element={<Main addProduct={addProduct}/>}/>
-         <Route path='/cart' element={<ShoppingCart products={products}/>}/>
+         <Route path='/cart' element={<ShoppingCart products={products} deleteItem={deleteItem}/>}/>
        </Routes>
     </div>
   );
