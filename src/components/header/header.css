@@ -1,6 +1,5 @@
 .header {
     padding: 20px;
-    /* background: #fa7777; */
     background: #000000;
 }
 
@@ -15,7 +14,7 @@
 }
 
 .header__btn {
-    padding: 15px;
+    padding: 15px 30px;
     color: #fff;
     font-size: 18px;
     font-weight: 700;
@@ -30,20 +29,29 @@
     justify-content: center;
     text-shadow: 1px 1px 3px black;
     letter-spacing: 1px;
+    position: relative;
 }
 
 .header__btn:hover {
-    /* background: #fc9b9b; */
     background: #33821f;
-    /* box-shadow: 2px 2px 5px #803e3ea8; */
     box-shadow: 3px 3px 5px #4588349a;
 }
 
-#cart {
-    padding: 5px;
+.header__btn:hover .cart__item{
+    color: #ffffff;
+}
+
+.cart {
     display: inline-block;
     width: 20px;
     height: 20px;
     margin-left: 10px;
-    background: url('../../resources/icons/shopping-cart.png') center/cover no-repeat;
+}
+
+.cart__item {
+    position: absolute;
+    right: 7px;
+    font-size: 14px;
+    margin-left: 5px;
+    color: #33821f;
 }

@@ -12,17 +12,23 @@ export default function Total({list}) {
                 Total cost: <span className="total__sum">{countTotal(list) +' $'}</span>
             </p>
             <h3 className='total__title'>Method of payment</h3>
-            <div className='total__radio'>
-                <div>
-                    <input type="radio" name="payment" id='card' value='card' required/>
-                    <label htmlFor="card">Credit card</label>
+            <form>
+                <div className='total__radio'>
+                    <div>
+                        <input type="radio" name="payment" id='card' value='card' required/>
+                        <label htmlFor="card">Credit card</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="payment" id='cash' value='cash' required/>
+                        <label htmlFor="cash">Cash</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="payment" id='paypal' value='paypal' required/>
+                        <label htmlFor="paypal">Paypal</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" name="payment" id='cash' value='cash' required/>
-                    <label htmlFor="cash">Cash</label>
-                </div>
-            </div>
-            <button className='total__btn'>Make an order</button>
+                <button className='total__btn'>Make an order</button>
+            </form>
         </div>
     );
 }

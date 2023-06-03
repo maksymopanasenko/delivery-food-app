@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className='app'>
-      <Header />
+      <Header quantity={products.length}/>
        <Routes>
          <Route path='*' element={<Main addProduct={addProduct}/>}/>
          <Route path='/cart' element={<ShoppingCart products={products} deleteItem={deleteItem}/>}/>

@@ -35,6 +35,10 @@
     margin-right: 5px;
 }
 
+.total__radio label{
+    font-size: 18px;
+}
+
 .total__btn {
     display: inline-block;
     margin: 0 auto;
