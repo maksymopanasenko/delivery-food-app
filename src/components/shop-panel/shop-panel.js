@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './shop-panel.css';
+import './Shop-panel.css';
 
-function Restaurant({children}) {
-
+function Restaurant({children, disabled}) {
+    
     return (
-        <button>
+        <button disabled={disabled.length > 0 ? true : false}>
             {children}
         </button>
     );
 }
 
-export default function Panel({getIndex}) {
+export default function Panel({getIndex, filter, quantity}) {
     const [items] = useState(['McDonalds', 'KFC', 'Subway', 'Taco Bell', 'Burger King']);
+    const active = items.find((item, index) => index === filter);
 
     return (
         <ul className="panel__list">
             {items.map((item, index) => (
-                <li className="panel__item" key={index} onClick={() => getIndex(index)}>
-                    <Link to={`/shop${index + 1}`}><Restaurant >{item}</Restaurant></Link>
+                <li className={active === item ? "panel__item active" : "panel__item"} key={index} onClick={() => getIndex(index)}>
+                    <Link to={`/shop${index + 1}`}><Restaurant disabled={quantity}>{item}</Restaurant></Link>
                 </li>
             ))}
         </ul>

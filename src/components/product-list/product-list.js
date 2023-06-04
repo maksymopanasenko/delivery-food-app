@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './product-list.css';
+import './Product-list.css';
 
 function EmptyCart() {
     return (

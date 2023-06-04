@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Header from './components/header/header';
+import Header from './components/header/Header';
 
 import './App.css';
-import Main from './components/main-page/main-page';
-import ShoppingCart from './components/shoppping-cart/shopping-cart';
+import Main from './components/main-page/Main-page';
+import ShoppingCart from './components/shoppping-cart/Shopping-cart';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -22,7 +22,7 @@ function App() {
     <div className='app'>
       <Header quantity={products.length}/>
        <Routes>
-         <Route path='*' element={<Main addProduct={addProduct}/>}/>
+         <Route path='*' element={<Main addProduct={addProduct} quantity={products}/>}/>
          <Route path='/cart' element={<ShoppingCart products={products} deleteItem={deleteItem}/>}/>
        </Routes>
     </div>

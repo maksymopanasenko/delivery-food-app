@@ -1,4 +1,4 @@
-import './total.css';
+import './Total.css';
 
 export default function Total({list}) {
 

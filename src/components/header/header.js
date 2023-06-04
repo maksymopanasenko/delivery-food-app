@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import img from '../../resources/icons/shopping-cart-white.png';
-import './header.css';
+import './Header.css';
 
 function Button({children, text}) {
     return <button className='header__btn'>{text}{children}</button>

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import Panel from '../shop-panel/shop-panel';
-import Board from '../offer-board/offer-board';
+import Panel from '../shop-panel/Shop-panel';
+import Board from '../offer-board/Offer-board';
 
 import gif from '../../resources/gifs/food-truck.gif';
 
-import './main-page.css';
+import './Main-page.css';
 
-export default function Main({addProduct}) {
+export default function Main({addProduct, quantity}) {
 
     const [data, setData] = useState(null);
     const [index, setIndex] = useState(null);
@@ -42,7 +42,7 @@ export default function Main({addProduct}) {
         <main>
             <div className="container">
                 <div className="main__body">
-                    <Panel getIndex={getIndex}/>
+                    <Panel getIndex={getIndex} filter={index} quantity={quantity}/>
                     <>
                         {data ?
                             (<>

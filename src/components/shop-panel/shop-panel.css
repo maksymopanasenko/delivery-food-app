@@ -1,25 +1,19 @@
-.panel__list {
-    list-style: none;
-}
-
 .panel__item button {
     width: 200px;
     font-size: 20px;
     margin-bottom: 8px;
     padding: 20px;
+    list-style: none;
     text-align: center;
     border: 2px solid #33821f;
-    /* border: 2px solid #fa7777; */
     background: #33821f4f;
     border-radius: 10px;
-    transition: all .3s;
     cursor: pointer;
     letter-spacing: 1px;
     color: #fff;
     text-shadow: 1px 1px 3px black;
 }
 
-.panel__item button:hover {
-    /* background: #fc9b9b; */
+.active button{
     background: #33821f;
 }

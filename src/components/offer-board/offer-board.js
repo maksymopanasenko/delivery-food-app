@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import Card from '../card/card';
+import Card from '../card/Card';
 import cossack from '../../resources/img/cossack.png'
 
-import './offer-board.css';
+import './Offer-board.css';
 
 function Banner() {
     return (
