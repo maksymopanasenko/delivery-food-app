@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import img from '../../resources/icons/shopping-cart-white.png';
 import './Header.css';
@@ -18,15 +18,19 @@ function Cart({quantity}) {
 
 export default function Header({quantity}) {
     return (
-        <header className="header">
-            <div className="container">
-                <nav>
-                    <ul className='header__btns'>
-                        <li className='header__item'><Link to='/'><Button text='Shops'/></Link></li>
-                        <li className='header__item'><Link to='/cart'><Button text='Shopping cart'><Cart quantity={quantity}/></Button></Link></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <>
+            <header className="header">
+                <div className="container">
+                    <nav>
+                        <ul className='header__btns'>
+                            <li className='header__item'><Link to='/'><Button text='Shops'/></Link></li>
+                            <li className='header__item'><Link to='/cart'><Button text='Shopping cart'><Cart quantity={quantity}/></Button></Link></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <Outlet />
+        </>
     );
 }

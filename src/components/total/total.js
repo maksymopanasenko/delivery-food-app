@@ -15,19 +15,19 @@ export default function Total({list}) {
             <form>
                 <div className='total__radio'>
                     <div>
-                        <input type="radio" name="payment" id='card' value='card' required/>
+                        <input type="radio" name="payment" id='card' value='card' checked/>
                         <label htmlFor="card">Credit card</label>
                     </div>
                     <div>
-                        <input type="radio" name="payment" id='cash' value='cash' required/>
+                        <input type="radio" name="payment" id='cash' value='cash'/>
                         <label htmlFor="cash">Cash</label>
                     </div>
                     <div>
-                        <input type="radio" name="payment" id='paypal' value='paypal' required/>
+                        <input type="radio" name="payment" id='paypal' value='paypal'/>
                         <label htmlFor="paypal">Paypal</label>
                     </div>
                 </div>
-                <button className='total__btn'>Make an order</button>
+                <button onClick={(e) => {e.preventDefault(); alert('It is a demo version of the app. To be continue...')}} className='total__btn'>Make an order</button>
             </form>
         </div>
     );

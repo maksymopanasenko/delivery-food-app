@@ -19,7 +19,7 @@ export default function Panel({getIndex, filter, quantity}) {
         <ul className="panel__list">
             {items.map((item, index) => (
                 <li className={active === item ? "panel__item active" : "panel__item"} key={index} onClick={() => getIndex(index)}>
-                    <Link to={`/shop${index + 1}`}><Restaurant disabled={quantity}>{item}</Restaurant></Link>
+                    <Link to={`/${index + 1}`}><Restaurant disabled={quantity}>{item}</Restaurant></Link>
                 </li>
             ))}
         </ul>
