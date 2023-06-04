@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import Panel from '../shop-panel/Shop-panel';
-import Board from '../offer-board/Offer-board';
+import Panel from '../shop-panel/ShopPanel';
+import Board from '../offer-board/OfferBoard';
 
 import gif from '../../resources/gifs/food-truck.gif';
 
-import './Main-page.css';
+import './MainPage.css';
 
 export default function Main({addProduct, quantity}) {
 

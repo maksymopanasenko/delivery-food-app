@@ -1,7 +1,7 @@
-import ProductList from "../product-list/Product-list";
+import ProductList from "../product-list/ProductList";
 import Total from "../total/Total";
 
-import './Shopping-cart.css';
+import './ShoppingCart.css';
 
 export default function ShoppingCart({products, deleteItem}) {
 

@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Card from '../card/Card';
 import cossack from '../../resources/img/cossack.png'
 
-import './Offer-board.css';
+import './OfferBoard.css';
 
 function Banner() {
     return (

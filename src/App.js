@@ -4,8 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/header/Header';
 
 import './App.css';
-import Main from './components/main-page/Main-page';
-import ShoppingCart from './components/shoppping-cart/Shopping-cart';
+import Main from './components/main-page/MainPage';
+import ShoppingCart from './components/shoppping-cart/ShoppingCart';
 
 function App() {
   const [products, setProducts] = useState([]);
