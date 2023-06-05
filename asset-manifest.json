@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/sichexpress/static/css/main.6dab84dd.css",
-    "main.js": "/sichexpress/static/js/main.55a21b33.js",
+    "main.css": "/sichexpress/static/css/main.2765184a.css",
+    "main.js": "/sichexpress/static/js/main.d1b0f392.js",
     "static/media/food-truck.gif": "/sichexpress/static/media/food-truck.324feb5b0b03b94518d2.gif",
     "static/media/star.png": "/sichexpress/static/media/star.eb23c49161d0f63e85a4.png",
     "static/media/cossack.png": "/sichexpress/static/media/cossack.9b5a51f7dcbc10dbb53e.png",
     "index.html": "/sichexpress/index.html",
-    "main.6dab84dd.css.map": "/sichexpress/static/css/main.6dab84dd.css.map",
-    "main.55a21b33.js.map": "/sichexpress/static/js/main.55a21b33.js.map"
+    "main.2765184a.css.map": "/sichexpress/static/css/main.2765184a.css.map",
+    "main.d1b0f392.js.map": "/sichexpress/static/js/main.d1b0f392.js.map"
   },
   "entrypoints": [
-    "static/css/main.6dab84dd.css",
-    "static/js/main.55a21b33.js"
+    "static/css/main.2765184a.css",
+    "static/js/main.d1b0f392.js"
   ]
 }
