@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react';
-import Panel from '../shop-panel/ShopPanel';
-import Board from '../offer-board/OfferBoard';
+import Panel from '../../components/shop-panel/ShopPanel';
+import Board from '../../components/offer-board/OfferBoard';
 
 import gif from '../../resources/gifs/food-truck.gif';
 
 import './MainPage.css';
 
 export default function Main({addProduct, quantity}) {
-
-    const [data, setData] = useState(null);
+    const [allProducts, setAllProducts] = useState(null);
     const [index, setIndex] = useState(null);
 
     function Loading() {
@@ -28,9 +27,9 @@ export default function Main({addProduct, quantity}) {
         try {
             const response = await fetch('https://food-delivery-server-nk9c.onrender.com/');
             const data = await response.json();
-            setData(data);
+            setAllProducts(data);
         } catch (error) {
-            console.error('Error happened:', error);
+            console.error('Error happened: ', error);
         }
     }
 
@@ -44,9 +43,9 @@ export default function Main({addProduct, quantity}) {
                 <div className="main__body">
                     <Panel getIndex={getIndex} filter={index} quantity={quantity}/>
                     <>
-                        {data ?
+                        {allProducts ?
                             (<>
-                                <Board data={JSON.stringify(data, null, 2)} index={index} addProduct={addProduct}/>
+                                <Board data={JSON.stringify(allProducts, null, 2)} index={index} addProduct={addProduct}/>
                             </>) :
                             (<Loading/>)
                         }

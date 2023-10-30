@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import img from '../../resources/icons/shopping-cart-white.png';
 import './Header.css';
@@ -29,8 +29,6 @@ export default function Header({quantity}) {
                     </nav>
                 </div>
             </header>
-
-            <Outlet />
         </>
     );
 }
