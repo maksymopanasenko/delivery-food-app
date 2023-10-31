@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Main from './pages/MainPage/MainPage';
-import ShoppingCart from './components/shoppping-cart/ShoppingCart';
-import NoPage from './components/nopage/NoPage';
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 
 import './App.css';
 import Layout from './pages/Layout/Layout';
+import NoPage from './pages/NoPage/NoPage';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -24,6 +24,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Layout quantity={products.length}/>}>
                 <Route index element={<Main addProduct={addProduct} quantity={products}/>} />
+                <Route path='/sichexpress' element={<Main addProduct={addProduct} quantity={products}/>} />
                 <Route path='/*' element={<Main addProduct={addProduct} quantity={products}/>} />
                 <Route path='/cart' element={<ShoppingCart products={products} deleteItem={deleteItem}/>}/>
 

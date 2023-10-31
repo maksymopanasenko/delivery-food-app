@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Panel from '../../components/shop-panel/ShopPanel';
+import ShopPanel from '../../components/shop-panel/ShopPanel';
 import Board from '../../components/offer-board/OfferBoard';
 
 import gif from '../../resources/gifs/food-truck.gif';
@@ -41,15 +41,15 @@ export default function Main({addProduct, quantity}) {
         <main>
             <div className="container">
                 <div className="main__body">
-                    <Panel getIndex={getIndex} filter={index} quantity={quantity}/>
-                    <>
-                        {allProducts ?
-                            (<>
+                    {allProducts ? 
+                        (
+                            <>
+                                <ShopPanel getIndex={getIndex} filter={index} quantity={quantity}/>
                                 <Board data={JSON.stringify(allProducts, null, 2)} index={index} addProduct={addProduct}/>
-                            </>) :
-                            (<Loading/>)
-                        }
-                    </>
+                            </>
+                        ) :
+                        <Loading/>
+                    }
                 </div>
             </div>
         </main>

@@ -1,0 +1,1 @@
+export  const restorants = ['McDonalds', 'KFC', 'Subway', 'Taco Bell', 'Burger King'];

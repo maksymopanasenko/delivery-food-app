@@ -15,7 +15,7 @@ export default function Total({list}) {
             <form>
                 <div className='total__radio'>
                     <div>
-                        <input type="radio" name="payment" id='card' value='card' checked/>
+                        <input type="radio" name="payment" id='card' value='card' defaultChecked/>
                         <label htmlFor="card">Credit card</label>
                     </div>
                     <div>
