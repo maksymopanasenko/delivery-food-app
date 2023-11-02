@@ -23,7 +23,7 @@ export default function Header({quantity}) {
                 <div className="container">
                     <nav>
                         <ul className='header__btns'>
-                            <li className='header__item'><Link to='/'><Button text='Shops'/></Link></li>
+                            <li className='header__item'><Link to='/shops'><Button text='Shops'/></Link></li>
                             <li className='header__item'><Link to='/cart'><Button text='Shopping cart'><Cart quantity={quantity}/></Button></Link></li>
                         </ul>
                     </nav>

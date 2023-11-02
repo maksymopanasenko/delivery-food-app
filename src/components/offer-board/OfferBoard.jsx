@@ -1,18 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Card from '../card/Card';
-import cossack from '../../resources/img/cossack.png'
 
 import './OfferBoard.css';
-
-function Banner() {
-    return (
-        <div className='banner'>
-            <h1 className='banner__title'>SichExpress</h1>
-            <img src={cossack} alt="cossack" />
-            <p className='banner__slogan'><em>"Mountains shiver as we deliver"</em></p>
-        </div>
-    );
-}
+import Banner from '../banner/Banner';
 
 function BoardList({array}) {
     return (
@@ -34,7 +24,7 @@ export default function Board({data, index, addProduct}) {
     return (
         <div className="board">
             <Routes>
-                <Route path='/' element={<Banner/>}/>
+                <Route path='/' element={<Banner />}/>
                 <Route path='/:id' element={<BoardList array={arr} />}/>
             </Routes>
         </div>

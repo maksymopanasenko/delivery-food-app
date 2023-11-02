@@ -16,7 +16,7 @@ export default function Main({addProduct, quantity}) {
                 <img src={gif} alt="gif" />
                 <p className='loading__text'>Loading...</p>
             </div>
-        )
+        );
     }
 
     useEffect(() => {

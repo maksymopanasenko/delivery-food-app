@@ -7,6 +7,7 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import NoPage from './pages/NoPage/NoPage';
+import StartPage from './pages/StartPage/StartPage';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -23,9 +24,8 @@ function App() {
     <div className='app'>
         <Routes>
             <Route path='/' element={<Layout quantity={products.length}/>}>
-                <Route index element={<Main addProduct={addProduct} quantity={products}/>} />
-                <Route path='/sichexpress' element={<Main addProduct={addProduct} quantity={products}/>} />
-                <Route path='/*' element={<Main addProduct={addProduct} quantity={products}/>} />
+                <Route index element={<StartPage />} />
+                <Route path='/shops/*' element={<Main addProduct={addProduct} quantity={products}/>} />
                 <Route path='/cart' element={<ShoppingCart products={products} deleteItem={deleteItem}/>}/>
 
                 <Route path="*" element={<NoPage />} />

@@ -12,6 +12,11 @@
     letter-spacing: 1px;
     color: #fff;
     text-shadow: 1px 1px 3px black;
+    transition: .4s;
+}
+
+.panel__item button:hover {
+    box-shadow: 0 0 15px #082601;   
 }
 
 .active button{

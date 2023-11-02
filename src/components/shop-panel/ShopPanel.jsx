@@ -19,7 +19,7 @@ export default function ShopPanel({getIndex, filter, quantity}) {
         <ul className="panel__list">
             {restorants.map((item, index) => (
                 <li className={active === item ? "panel__item active" : "panel__item"} key={index} onClick={() => getIndex(index)}>
-                    <Link to={`/${index + 1}`}><Tab disabled={quantity}>{item}</Tab></Link>
+                    <Link to={`/shops/${index + 1}`}><Tab disabled={quantity}>{item}</Tab></Link>
                 </li>
             ))}
         </ul>
