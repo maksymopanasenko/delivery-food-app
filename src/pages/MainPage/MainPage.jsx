@@ -6,9 +6,8 @@ import gif from '../../resources/gifs/food-truck.gif';
 
 import './MainPage.css';
 
-export default function Main({addProduct, quantity}) {
+export default function Main({ quantity }) {
     const [allProducts, setAllProducts] = useState(null);
-    const [index, setIndex] = useState(null);
 
     function Loading() {
         return (
@@ -22,7 +21,7 @@ export default function Main({addProduct, quantity}) {
     useEffect(() => {
         fetchData();
     }, []);
-  
+
     async function fetchData() {
         try {
             const response = await fetch('https://food-delivery-server-nk9c.onrender.com/');
@@ -33,22 +32,18 @@ export default function Main({addProduct, quantity}) {
         }
     }
 
-    function getIndex(index) {
-        setIndex(index);
-    }
-
     return (
         <main>
             <div className="container">
                 <div className="main__body">
-                    {allProducts ? 
+                    {allProducts ?
                         (
                             <>
-                                <ShopPanel getIndex={getIndex} filter={index} quantity={quantity}/>
-                                <Board data={JSON.stringify(allProducts, null, 2)} index={index} addProduct={addProduct}/>
+                                <ShopPanel quantity={quantity} />
+                                <Board data={allProducts} />
                             </>
                         ) :
-                        <Loading/>
+                        <Loading />
                     }
                 </div>
             </div>

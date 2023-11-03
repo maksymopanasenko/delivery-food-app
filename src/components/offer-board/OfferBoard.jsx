@@ -3,6 +3,7 @@ import Card from '../card/Card';
 
 import './OfferBoard.css';
 import Banner from '../banner/Banner';
+import { useSelector } from 'react-redux';
 
 function BoardList({array}) {
     return (
@@ -12,13 +13,14 @@ function BoardList({array}) {
     );
 }
 
-export default function Board({data, index, addProduct}) {
+export default function Board({data}) {
+    const index = useSelector(state => state.shops.activeShopTab);
 
-    const dataArray = JSON.parse(data);
+    const dataArray = data;
     
     const arr = dataArray[index]?.map(item => {
-        const {id, ...data} = item;
-        return <Card key={id} data={data} addProduct={addProduct}/>
+        const {id} = item;
+        return <Card key={id} data={item} />
     });
 
     return (

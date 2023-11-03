@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Main from './pages/MainPage/MainPage';
@@ -8,29 +8,25 @@ import './App.css';
 import Layout from './pages/Layout/Layout';
 import NoPage from './pages/NoPage/NoPage';
 import StartPage from './pages/StartPage/StartPage';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const products = useSelector(state => state.cart.cartProducts);
 
-  function addProduct(product) {
-    setProducts(products => [...products, product]);
-  }
-
-  function deleteItem(i) {
-    setProducts(products => products.filter(item => item !== products[i]))
-  }
+  console.log(products);
 
   return (
     <div className='app'>
-        <Routes>
-            <Route path='/' element={<Layout quantity={products.length}/>}>
-                <Route index element={<StartPage />} />
-                <Route path='/shops/*' element={<Main addProduct={addProduct} quantity={products}/>} />
-                <Route path='/cart' element={<ShoppingCart products={products} deleteItem={deleteItem}/>}/>
+      <Routes>
+        <Route path='/' element={<Layout quantity={products.length} />}>
+          <Route index element={<StartPage />} />
+          <Route path='/sichexpress' element={<StartPage />} />
+          <Route path='/shops/*' element={<Main quantity={products} />} />
+          <Route path='/cart' element={<ShoppingCart products={products} />} />
 
-                <Route path="*" element={<NoPage />} />
-            </Route>
-        </Routes>
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
