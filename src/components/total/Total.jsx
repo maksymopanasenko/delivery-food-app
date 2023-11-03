@@ -1,6 +1,8 @@
+import { useSelector } from 'react-redux';
 import './Total.css';
 
-export default function Total({list}) {
+export default function Total() {
+    const productsInCart = useSelector(state => state.cart.cartProducts);
 
     const countTotal = (array) => {
         return array.length !== 0 ? array.reduce((acc, curr) => acc + curr.price, 0).toFixed(2) : 0
@@ -9,7 +11,7 @@ export default function Total({list}) {
     return (
         <div className="total">
             <p className="total__price">
-                Total cost: <span className="total__sum">{countTotal(list) +' $'}</span>
+                Total cost: <span className="total__sum">{countTotal(productsInCart) +' $'}</span>
             </p>
             <h3 className='total__title'>Method of payment</h3>
             <form>

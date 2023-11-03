@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/header/Header';
 
-function Layout({quantity}) {
+function Layout() {
     return (
         <>
-            <Header quantity={quantity}/>
+            <Header />
             <Outlet />
         </>
     );

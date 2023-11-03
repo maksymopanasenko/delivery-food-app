@@ -14,7 +14,8 @@ function Tab({ children, disabled }) {
     );
 }
 
-export default function ShopPanel({ quantity }) {
+export default function ShopPanel() {
+    const productsInCart = useSelector(state => state.cart.cartProducts);
     const activeTab = useSelector(state => state.shops.activeShopTab);
     const dispatch = useDispatch();
     const active = restorants.find((item, index) => index === activeTab);
@@ -25,7 +26,7 @@ export default function ShopPanel({ quantity }) {
         <ul className="panel__list">
             {restorants.map((item, index) => (
                 <li className={active === item ? "panel__item active" : "panel__item"} key={index} onClick={() => getIndex(index)}>
-                    <Link to={`/shops/${index + 1}`}><Tab disabled={quantity}>{item}</Tab></Link>
+                    <Link to={`/shops/${index + 1}`}><Tab disabled={productsInCart}>{item}</Tab></Link>
                 </li>
             ))}
         </ul>

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './MainPage.css';
 
-export default function Main({ quantity }) {
+export default function Main() {
     const allProducts = useSelector(state => state.products.products);
     const dispatch = useDispatch();
 
@@ -24,7 +24,6 @@ export default function Main({ quantity }) {
         dispatch(fetchProducts());
     }, []);
 
-    console.log(allProducts);
     return (
         <main>
             <div className="container">
@@ -32,7 +31,7 @@ export default function Main({ quantity }) {
                     {allProducts ?
                         (
                             <>
-                                <ShopPanel quantity={quantity} />
+                                <ShopPanel />
                                 <Board data={allProducts} />
                             </>
                         ) :

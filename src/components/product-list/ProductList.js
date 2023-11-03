@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import './ProductList.css';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCartAC } from '../../store/reducers/cart-reducer';
+import './ProductList.css';
 
 function EmptyCart() {
     return (
@@ -12,7 +12,8 @@ function EmptyCart() {
     );
 }
 
-export default function ProductList({list}) {
+export default function ProductList() {
+    const productsInCart = useSelector(state => state.cart.cartProducts);
     const dispatch = useDispatch();
 
     const deleteProduct = (id) => {
@@ -21,9 +22,9 @@ export default function ProductList({list}) {
 
     return (
         <>
-            {list.length !== 0 ?
+            {productsInCart.length ?
                 (<ul className="list">
-                    {list.map((item, index) => {
+                    {productsInCart.map((item, index) => {
                         return (
                             <li className="list__item" key={index}>
                                 <div className="list__wrapper"> 

@@ -16,11 +16,11 @@ function App() {
   return (
     <div className='app'>
       <Routes>
-        <Route path='/' element={<Layout quantity={products.length} />}>
+        <Route path='/' element={<Layout />}>
           <Route index element={<StartPage />} />
           <Route path='/sichexpress' element={<StartPage />} />
-          <Route path='/shops/*' element={<Main quantity={products} />} />
-          <Route path='/cart' element={<ShoppingCart products={products} />} />
+          <Route path='/shops/*' element={<Main />} />
+          <Route path='/cart' element={<ShoppingCart/>} />
 
           <Route path="*" element={<NoPage />} />
         </Route>
