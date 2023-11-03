@@ -13,8 +13,6 @@ import { useSelector } from 'react-redux';
 function App() {
   const products = useSelector(state => state.cart.cartProducts);
 
-  console.log(products);
-
   return (
     <div className='app'>
       <Routes>

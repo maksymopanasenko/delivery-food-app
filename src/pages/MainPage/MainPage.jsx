@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import ShopPanel from '../../components/shop-panel/ShopPanel';
 import Board from '../../components/offer-board/OfferBoard';
-
 import gif from '../../resources/gifs/food-truck.gif';
+import fetchProducts from '../../store/asyncActions/allData';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './MainPage.css';
 
 export default function Main({ quantity }) {
-    const [allProducts, setAllProducts] = useState(null);
+    const allProducts = useSelector(state => state.products.products);
+    const dispatch = useDispatch();
 
     function Loading() {
         return (
@@ -19,19 +21,10 @@ export default function Main({ quantity }) {
     }
 
     useEffect(() => {
-        fetchData();
+        dispatch(fetchProducts());
     }, []);
 
-    async function fetchData() {
-        try {
-            const response = await fetch('https://food-delivery-server-nk9c.onrender.com/');
-            const data = await response.json();
-            setAllProducts(data);
-        } catch (error) {
-            console.error('Error happened: ', error);
-        }
-    }
-
+    console.log(allProducts);
     return (
         <main>
             <div className="container">

@@ -8,6 +8,8 @@ export default function Card({ data }) {
         dispatch(addToCartAC(data));
     }
 
+    console.log(data);
+
     return (
         <li className="board__card">
             <div className="board__link" onClick={() => addToCart(data)}>
