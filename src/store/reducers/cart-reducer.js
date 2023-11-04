@@ -6,17 +6,27 @@ const initialState = {
 }
 
 const cartReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case ADD_PRODUCT:
             return {
                 ...state,
                 cartProducts: [...state.cartProducts, action.payload]
             }
         case DELETE_PRODUCT:
+            const targetId = action.payload;
+            let encounteredIds = {};
+            const filteredProducts = state.cartProducts.filter(product => {
+                if (product.id === targetId && !encounteredIds[targetId]) {
+                    encounteredIds[targetId] = true;
+                    return false;
+                }
+                return true;
+            });
+            
             return {
                 ...state,
-                cartProducts: state.cartProducts.filter(product => product.id !== action.payload)
-            }
+                cartProducts: filteredProducts
+            };
         default:
             return state;
     }
