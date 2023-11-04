@@ -1,0 +1,39 @@
+
+.banner {
+    text-align: center;
+    margin-top: 50px;
+    color: #fff;
+}
+
+.banner__title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.banner img {
+    object-fit: cover;
+    background: #33821f;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 7px black;
+}
+
+.banner__msg {
+    margin-top: 50px;
+}
+
+.banner a {
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 2px solid #33821f;
+    background: #33821f4f;
+    padding: 10px 30px;
+    transition: .3s;
+}
+
+.banner a:hover {
+    background: #33821f;
+}

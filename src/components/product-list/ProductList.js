@@ -7,7 +7,7 @@ function EmptyCart() {
     return (
         <div className="empty">
             <p className='empty__text'>Your cart is empty...</p>
-            <Link to='/shops' className='empty__btn'>Back to shop list</Link>
+            <Link to='/shops/1' className='empty__btn'>Back to shop list</Link>
         </div>
     );
 }

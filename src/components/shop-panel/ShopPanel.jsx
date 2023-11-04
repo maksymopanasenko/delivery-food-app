@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateActiveTabAC } from '../../store/reducers/shops-reducer';
 
 function Tab({ children, disabled }) {
-
     return (
-        <button disabled={disabled.length > 0 ? true : false}>
+        <button disabled={!!disabled.length}>
             {children}
         </button>
     );
@@ -18,15 +17,16 @@ export default function ShopPanel() {
     const productsInCart = useSelector(state => state.cart.cartProducts);
     const activeTab = useSelector(state => state.shops.activeShopTab);
     const dispatch = useDispatch();
-    const active = restorants.find((item, index) => index === activeTab);
 
-    const getIndex = (index) => dispatch(updateActiveTabAC(index));
+    const active = restorants.find(({id}) => id === activeTab);
+
+    const getIndex = (id) => dispatch(updateActiveTabAC(id));
 
     return (
         <ul className="panel__list">
-            {restorants.map((item, index) => (
-                <li className={active === item ? "panel__item active" : "panel__item"} key={index} onClick={() => getIndex(index)}>
-                    <Link to={`/shops/${index + 1}`}><Tab disabled={productsInCart}>{item}</Tab></Link>
+            {restorants.map(({id, name}) => (
+                <li className={active.id === id ? "panel__item active" : "panel__item"} key={id} onClick={() => getIndex(id)}>
+                    <Link to={`/shops/${id}`}><Tab disabled={productsInCart}>{name}</Tab></Link>
                 </li>
             ))}
         </ul>

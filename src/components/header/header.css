@@ -1,6 +1,25 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .header {
     padding: 20px;
     background: #000000;
+}
+
+.header__logo {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 12px #33821f, 0 0 12px #33821f;
+    padding-right: 10px;
+    text-shadow: 0 0 10px #33821f, 0 0 10px #33821f, 0 0 10px #33821f, 0 0 10px #33821f;
 }
 
 .header__btns {

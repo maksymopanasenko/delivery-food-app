@@ -7,17 +7,3 @@ main {
     display: flex;
     justify-content: space-between;
 }
-
-.loading {
-    text-align: center;
-    margin: 50px auto;
-}
-
-.loading__text {
-    color: #fff;
-    font-size: 20px;
-}
-
-.loading img {
-    width: 150px;
-}

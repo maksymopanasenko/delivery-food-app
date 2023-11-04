@@ -1,9 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Card from '../card/Card';
-
-import './OfferBoard.css';
-import Banner from '../banner/Banner';
 import { useSelector } from 'react-redux';
+import './OfferBoard.css';
 
 function BoardList({children}) {
     return (
@@ -14,10 +12,10 @@ function BoardList({children}) {
 }
 
 export default function Board() {
-    const index = useSelector(state => state.shops.activeShopTab);
+    const shopId = useSelector(state => state.shops.activeShopTab);
     const products = useSelector(state => state.products.products);
-    
-    const productCards = products[index]?.map(item => {
+
+    const productCards = products[shopId - 1]?.map(item => {
         const {id} = item;
         return <Card key={id} data={item} />
     });
@@ -25,7 +23,6 @@ export default function Board() {
     return (
         <div className="board">
             <Routes>
-                <Route path='/' element={<Banner />}/>
                 <Route path='/:id' element={<BoardList>{productCards}</BoardList>}/>
             </Routes>
         </div>

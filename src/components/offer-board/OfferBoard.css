@@ -9,24 +9,3 @@
     list-style: none;
     gap: 50px 20px;
 }
-
-.banner {
-    text-align: center;
-    margin-top: 50px;
-    color: #fff;
-}
-
-.banner__title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-.banner img {
-    object-fit: cover;
-    background: #33821f;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 3px 4px 7px black;
-}

@@ -1,7 +1,7 @@
 const UPDATE_ACTIVE_TAB = "UPDATE_ACTIVE_TAB";
 
 const initialState = {
-    activeShopTab: null
+    activeShopTab: 1,
 }
 
 const shopsReducer = (state = initialState, action) => {

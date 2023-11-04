@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-
-import img from '../../resources/icons/shopping-cart-white.png';
-import './Header.css';
 import { useSelector } from 'react-redux';
+import img from '../../resources/icons/shopping-cart-white.png';
+import logo from '../../assets/img/neon-logo.png';
+import './Header.css';
 
 function Button({ children, text }) {
     return <button className='header__btn'>{text}{children}</button>
@@ -28,6 +28,10 @@ export default function Header() {
             <header className="header">
                 <div className="container">
                     <nav>
+                        <Link to='/' className="header__logo">
+                            <img src={logo} alt="logo" width={70} />
+                            SichExpress
+                        </Link>
                         <ul className='header__btns'>
                             <li className='header__item'>
                                 <Link to={productsInCart ? `/shops/${index}` : '/shops'}>
