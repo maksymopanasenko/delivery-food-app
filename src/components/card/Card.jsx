@@ -17,6 +17,11 @@ export default function Card({ data }) {
                     <span className='board__label star'>{data.assessment}</span>
                 </div>
                 <img src={data.image} alt='dish' />
+                <div className='board__link-controls'>
+                    <button className='card__btn'>+</button>
+                    <span className='card__counter'>0</span>
+                    <button className='card__btn'>-</button>
+                </div>
             </div>
 
             <div className="card__main-info">

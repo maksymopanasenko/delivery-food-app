@@ -1,3 +1,9 @@
+.panel__list {
+    position: sticky;
+    top: 150px;
+    max-height: 400px;
+}
+
 .panel__item button {
     width: 200px;
     font-size: 20px;
@@ -19,6 +25,18 @@
     box-shadow: 0 0 15px #082601;   
 }
 
-.active button{
-    background: #33821f;
+.panel__item button:disabled {
+    background: rgb(65, 65, 65);
+    border: 2px solid #1d1d1d;
+    color: #878787;
+}
+
+.panel__item button:disabled:hover {
+    box-shadow: none;
+}
+
+.panel__item.active button {
+    background: #33821f;    
+    border: 2px solid #33821f;
+    color: #fff;
 }

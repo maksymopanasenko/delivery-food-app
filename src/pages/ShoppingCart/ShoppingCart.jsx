@@ -8,13 +8,11 @@ export default function ShoppingCart() {
     const productsInCart = useSelector(state => state.cart.cartProducts);
 
     return (
-        <main>
-            <div className="container">
-                <div className="cart__body">
-                    <ProductList />
-                    {productsInCart.length > 0 && <Total />}
-                </div>
+        <div className="container">
+            <div className="cart__body">
+                <ProductList />
+                {productsInCart.length > 0 && <Total />}
             </div>
-        </main>
+        </div>
     );
 }

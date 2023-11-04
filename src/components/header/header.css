@@ -7,6 +7,10 @@ nav {
 .header {
     padding: 20px;
     background: #000000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
 .header__logo {

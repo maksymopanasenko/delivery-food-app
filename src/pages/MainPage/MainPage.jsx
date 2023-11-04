@@ -14,13 +14,11 @@ export default function Main() {
     }, []);
 
     return (
-        <main>
-            <div className="container">
-                <div className="main__body">
-                    <ShopPanel />
-                    <Board />
-                </div>
+        <div className="container">
+            <div className="main__body">
+                <ShopPanel />
+                <Board />
             </div>
-        </main>
+        </div>
     )
 }

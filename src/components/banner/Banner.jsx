@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import cossack from '../../resources/img/cossack.png';
+import cossack from '../../assets/img/cossack.png';
 import './Banner.css';
 
 function Banner() {

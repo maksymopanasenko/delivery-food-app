@@ -25,6 +25,13 @@
     display: flex;
 }
 
+.board__link-controls {
+    padding: 20px 0;
+    width: 100%;
+    background: #00000081;
+    bottom: 0;
+}
+
 .card__main-info {
     width: 70%;
     margin: 0 auto;
@@ -45,4 +52,19 @@
     top: 50%;
     transform: translateY(-50%);
     background: url('../../resources/icons/star.png') center/cover no-repeat;
+}
+
+.card__counter {
+    padding: 10px;
+}
+
+.card__btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    color: #000;
+    border-radius: 5px;
 }
