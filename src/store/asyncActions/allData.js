@@ -5,7 +5,6 @@ const fetchProducts = () => {
   return dispatch => {
     sendRequest('https://food-delivery-server-nk9c.onrender.com/')
       .then(data => dispatch(fetchProductsAC(data)));
-
   }
 }
 

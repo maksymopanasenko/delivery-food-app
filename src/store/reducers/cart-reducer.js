@@ -10,7 +10,7 @@ const cartReducer = (state = initialState, action) => {
         case ADD_PRODUCT:
             return {
                 ...state,
-                cartProducts: [...state.cartProducts, action.payload]
+                cartProducts: [...state.cartProducts, ...action.payload]
             }
         case DELETE_PRODUCT:
             const targetId = action.payload;
@@ -32,10 +32,10 @@ const cartReducer = (state = initialState, action) => {
     }
 }
 
-export const addToCartAC = (product) => {
+export const addToCartAC = (products) => {
     return {
         type: ADD_PRODUCT,
-        payload: product
+        payload: products
     }
 }
 
