@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteFromCartAC } from '../../store/reducers/cart-reducer';
+import Counter from '../Counter/Counter';
 import './ProductList.css';
 
 function EmptyCart() {
@@ -32,6 +33,7 @@ export default function ProductList() {
                                     <img src={item.image} alt={item.name} />
                                     <span>{item.name}</span>
                                 </div>
+                                <Counter data={productsInCart} />
                                 <button className='list__btn' onClick={() => deleteProduct(item.id)}>Remove</button>
                             </li>
                         );
