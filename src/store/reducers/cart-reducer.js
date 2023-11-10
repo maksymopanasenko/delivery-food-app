@@ -1,4 +1,5 @@
-const ADD_PRODUCT = "ADD_PRODUCT";
+const ADD_FIRST_PRODUCT = "ADD_FIRST_PRODUCT";
+const ADD_NEXT_PRODUCT = "ADD_NEXT_PRODUCT";
 const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 const initialState = {
@@ -7,16 +8,41 @@ const initialState = {
 
 const cartReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_PRODUCT:
+        case ADD_FIRST_PRODUCT:
             return {
                 ...state,
-                cartProducts: [...state.cartProducts, ...action.payload]
+                cartProducts:  [...state.cartProducts, action.payload]
+            }
+        case ADD_NEXT_PRODUCT:
+            const {instance, quantity} = action.payload;
+            const fil = state.cartProducts.find(product => product.instance.id === instance.id);
+            if (!fil) {
+                return {
+                    ...state,
+                    cartProducts: [...state.cartProducts, action.payload]
+                }
+            }
+
+            const filteredProduct = state.cartProducts.map(product => {
+                if (product.instance.id === instance.id) {
+                    return {
+                        ...product,
+                        quantity: product.quantity + quantity
+                    }
+                } else {
+                    return product;
+                }
+            });
+            
+            return {
+                ...state,
+                cartProducts: filteredProduct
             }
         case DELETE_PRODUCT:
             const targetId = action.payload;
             let encounteredIds = {};
             const filteredProducts = state.cartProducts.filter(product => {
-                if (product.id === targetId && !encounteredIds[targetId]) {
+                if (product.instance.id === targetId && !encounteredIds[targetId]) {
                     encounteredIds[targetId] = true;
                     return false;
                 }
@@ -32,14 +58,23 @@ const cartReducer = (state = initialState, action) => {
     }
 }
 
-export const addToCartAC = (products) => {
+export const addToCartFirstAC = (products) => {
+    // console.log(products);
     return {
-        type: ADD_PRODUCT,
+        type: ADD_FIRST_PRODUCT,
+        payload: products
+    }
+}
+
+export const addToCartNextAC = (products) => {
+    return {
+        type: ADD_NEXT_PRODUCT,
         payload: products
     }
 }
 
 export const deleteFromCartAC = (id) => {
+    console.log(id);
     return {
         type: DELETE_PRODUCT,
         payload: id

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteFromCartAC } from '../../store/reducers/cart-reducer';
+import { addToCartNextAC, deleteFromCartAC } from '../../store/reducers/cart-reducer';
 import Counter from '../Counter/Counter';
 import './ProductList.css';
 
@@ -21,25 +21,33 @@ export default function ProductList() {
         dispatch(deleteFromCartAC(id));
     }
 
+    const increaseCount = (id) => {
+        const newProd = productsInCart.find(item => item.id === id)
+        dispatch(addToCartNextAC([newProd]))
+    }
+
+    // const decreaseCount = (id) => {
+    //     const newProd = productsInCart.find(item => item.id === id)
+    //     dispatch(addToCartNextAC([newProd]))
+    // }
+
     return (
         <>
             {productsInCart.length ?
                 (<ul className="list">
-                    {productsInCart.map((item, index) => {
-                        return (
-                            <li className="list__item" key={index}>
-                                <div className="list__wrapper"> 
-                                    <span>{index + 1}.</span>
-                                    <img src={item.image} alt={item.name} />
-                                    <span>{item.name}</span>
-                                </div>
-                                <Counter data={productsInCart} />
-                                <button className='list__btn' onClick={() => deleteProduct(item.id)}>Remove</button>
-                            </li>
-                        );
-                    })}
+                    {productsInCart.map(({ instance, quantity }, index) => (
+                        <li className="list__item" key={index}>
+                            <div className="list__wrapper">
+                                <span>{index + 1}.</span>
+                                <img src={instance.image} alt={instance.name} />
+                                <span>{instance.name}</span>
+                            </div>
+                            <Counter initialValue={quantity} item={instance} increaseCount={increaseCount} decreaseCount={deleteProduct} />
+                            <button className='list__btn' onClick={() => deleteProduct(instance.id)}>Remove</button>
+                        </li>
+                    ))}
                 </ul>) :
-                (<EmptyCart/>)
+                (<EmptyCart />)
             }
         </>
     );

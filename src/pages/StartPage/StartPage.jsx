@@ -1,20 +1,22 @@
 import { useSelector } from "react-redux";
 import Banner from "../../components/banner/Banner";
 import Loading from "../../components/loading/Loading";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import fetchProducts from '../../store/asyncActions/allData';
+import { useDispatch } from 'react-redux';
 
 function StartPage() {
     const products = useSelector(state => state.products.products);
-    const [loadedProds, setLoadedProds] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setLoadedProds(!loadedProds);
-    }, [products])
+        dispatch(fetchProducts());
+    }, []);
 
     return (
         <>
             {
-                loadedProds ?
+                products.length ?
                     <Banner /> :
                     <Loading />
             }

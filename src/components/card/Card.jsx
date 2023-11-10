@@ -1,26 +1,36 @@
 import './Card.css';
 import Counter from '../Counter/Counter';
-import { useDispatch } from 'react-redux';
-import { addToCartAC } from '../../store/reducers/cart-reducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCartFirstAC, addToCartNextAC } from '../../store/reducers/cart-reducer';
 import { useState } from 'react';
 
 export default function Card({ data }) {
-    const [preCart, setPreCart] = useState([]);
+    const [choosedItems, setChoosedItems] = useState(0);
+    const cart = useSelector(state => state.cart.cartProducts);
     const dispatch = useDispatch();
 
     const increaseCount = () => {
-        setPreCart(preCart => [...preCart, data]);
+        setChoosedItems(prev => prev + 1);
     }
 
     const decreaseCount = () => {
-        if (!preCart.length) return;
-
-        setPreCart([...preCart.slice(0, -1)]);
+        setChoosedItems(prev => prev - 1);
     }
 
     const addToCart = () => {
-        dispatch(addToCartAC(preCart));
-        setPreCart([]);
+        if (!choosedItems) return;
+        
+        const obj = {
+            quantity: choosedItems,
+            instance: data
+        }
+        if(cart.length) {
+            dispatch(addToCartNextAC(obj))
+        } else {
+            dispatch(addToCartFirstAC(obj));
+        }
+        
+        setChoosedItems(0);
     }
 
     return (
@@ -32,7 +42,7 @@ export default function Card({ data }) {
                 </div>
                 <img src={data.image} alt='dish' />
                 <div className="card__controls">
-                    <Counter data={preCart} increaseCount={increaseCount} decreaseCount={decreaseCount} />
+                    <Counter initialValue={choosedItems} increaseCount={increaseCount} decreaseCount={decreaseCount} />
                     <button className="card__add-btn" onClick={addToCart}>Add to cart</button>
                 </div>
             </div>

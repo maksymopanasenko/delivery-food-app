@@ -5,7 +5,7 @@ export default function Total() {
     const productsInCart = useSelector(state => state.cart.cartProducts);
 
     const countTotal = (array) => {
-        return array.length !== 0 ? array.reduce((acc, curr) => acc + curr.price, 0).toFixed(2) : 0
+        return array.length !== 0 ? array.reduce((acc, curr) => acc + curr.instance.price, 0).toFixed(2) : 0
     }
 
     return (
