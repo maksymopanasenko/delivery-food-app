@@ -3,7 +3,7 @@ import './Counter.css';
 import { useSelector } from 'react-redux';
 
 
-function Counter({ initialValue, item, increaseCount, decreaseCount }) {
+function Counter({ initialValue, item, increaseCount, decreaseCount, inCart }) {
     const cart = useSelector(state => state.cart.cartProducts);
     const [count, setCount] = useState(initialValue);
 
@@ -14,6 +14,7 @@ function Counter({ initialValue, item, increaseCount, decreaseCount }) {
 
     const handleDecrease = () => {
         if (count < 1) return;
+        if (inCart && count <= 1) return;
 
         setCount(count - 1);
         decreaseCount(item?.id);

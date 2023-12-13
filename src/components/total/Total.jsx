@@ -5,13 +5,16 @@ export default function Total() {
     const productsInCart = useSelector(state => state.cart.cartProducts);
 
     const countTotal = (array) => {
-        return array.length !== 0 ? array.reduce((acc, curr) => acc + curr.instance.price, 0).toFixed(2) : 0
+        const res = array.length !== 0 ? array.reduce((acc, curr) => acc + (curr.instance.price * curr.quantity), 0).toFixed(2) : 0;
+        return res;
     }
+
+    const result = countTotal(productsInCart);
 
     return (
         <div className="total">
             <p className="total__price">
-                Total cost: <span className="total__sum">{countTotal(productsInCart) +' $'}</span>
+                Total cost: <span className="total__sum">{result + ' $'}</span>
             </p>
             <h3 className='total__title'>Method of payment</h3>
             <form>

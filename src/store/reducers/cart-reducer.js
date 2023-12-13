@@ -1,5 +1,6 @@
 const ADD_FIRST_PRODUCT = "ADD_FIRST_PRODUCT";
 const ADD_NEXT_PRODUCT = "ADD_NEXT_PRODUCT";
+const REMOVE_ONE_UNIT = "REMOVE_ONE_UNIT";
 const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 const initialState = {
@@ -11,12 +12,13 @@ const cartReducer = (state = initialState, action) => {
         case ADD_FIRST_PRODUCT:
             return {
                 ...state,
-                cartProducts:  [...state.cartProducts, action.payload]
+                cartProducts: [...state.cartProducts, action.payload]
             }
         case ADD_NEXT_PRODUCT:
-            const {instance, quantity} = action.payload;
-            const fil = state.cartProducts.find(product => product.instance.id === instance.id);
-            if (!fil) {
+            const { instance } = action.payload;
+            const fill = state.cartProducts.find(product => product.instance.id === instance.id);
+
+            if (!fill) {
                 return {
                     ...state,
                     cartProducts: [...state.cartProducts, action.payload]
@@ -27,16 +29,41 @@ const cartReducer = (state = initialState, action) => {
                 if (product.instance.id === instance.id) {
                     return {
                         ...product,
-                        quantity: product.quantity + quantity
+                        quantity: product.quantity + 1
                     }
                 } else {
                     return product;
                 }
             });
-            
+
             return {
                 ...state,
                 cartProducts: filteredProduct
+            }
+        case REMOVE_ONE_UNIT:
+            const product = state.cartProducts.find(product => product.instance.id === action.payload.instance.id);
+
+            if (!product) {
+                return {
+                    ...state,
+                    cartProducts: [...state.cartProducts, action.payload]
+                }
+            }
+
+            const filteredProductDecr = state.cartProducts.map(product => {
+                if (product.instance.id === action.payload.instance.id) {
+                    return {
+                        ...product,
+                        quantity: product.quantity - 1
+                    }
+                } else {
+                    return product;
+                }
+            });
+
+            return {
+                ...state,
+                cartProducts: filteredProductDecr
             }
         case DELETE_PRODUCT:
             const targetId = action.payload;
@@ -48,7 +75,7 @@ const cartReducer = (state = initialState, action) => {
                 }
                 return true;
             });
-            
+
             return {
                 ...state,
                 cartProducts: filteredProducts
@@ -59,22 +86,27 @@ const cartReducer = (state = initialState, action) => {
 }
 
 export const addToCartFirstAC = (products) => {
-    // console.log(products);
     return {
         type: ADD_FIRST_PRODUCT,
         payload: products
     }
 }
 
-export const addToCartNextAC = (products) => {
+export const addToCartNextAC = (product) => {
     return {
         type: ADD_NEXT_PRODUCT,
-        payload: products
+        payload: product
+    }
+}
+
+export const decreaseQuantityAC = (product) => {
+    return {
+        type: REMOVE_ONE_UNIT,
+        payload: product
     }
 }
 
 export const deleteFromCartAC = (id) => {
-    console.log(id);
     return {
         type: DELETE_PRODUCT,
         payload: id
